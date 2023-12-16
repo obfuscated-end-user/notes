@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Payroll Deduction Calculator Using Radio Button</title>
+    </head>
+<body>
+    <h1>Payroll Deduction Calculator Using Radio Button</h1>
+    <form action="" method="POST">
+        <table cellpadding="1" cellspacing="1" style="text-align:left;" width="40%">
+            <tr>
+                <td><label>Rate Per Day</label></td>
+                <td><input type="number" id="rate-per-day" autofocus></td>
+            </tr>
+            <tr>
+                <td><label>Number of Days</label></td>
+                <td><input type="number" id="number-of-days"></td>
+            </tr>
+        </table>
+        <h2>Deductions</h2>
+        <table cellpadding="5" cellspacing="5" style="text-align:left;" width="40%">
+            <tr>
+                <td><input type="radio" name="deductions" onclick="resetDeductions();">   <label style="color:blue;">SSS (10%)</label></td>
+                <td><input type="radio" name="deductions" onclick="resetDeductions();">   <label style="color:blue;">Pag-Ibig (7%)</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="deductions" onclick="resetDeductions();">   <label style="color:blue;">Philhealth (5%)</label></td>
+                <td><input type="radio" name="deductions" onclick="resetDeductions();">   <label style="color:blue;">Tax (12%)</label></td>
+            </tr>
+        </table>
+        <br>
+        <br>           
+        <input type="submit" value="Compute" onclick="return solve();">
+        <input type="submit" value="Clear" onclick="return clear();">
+        <br>
+        <br>
+        <div id="results"></div>
+    </form>
+</body>
+<script>
+    function solve() {
+        var ratePerDay = parseInt(document.getElementById("rate-per-day").value);
+        var numberOfDays = parseInt(document.getElementById("number-of-days").value); 
+        var deductions = document.getElementsByName("deductions");
+        var payroll = ratePerDay * numberOfDays;
+    
+        if (document.getElementById("rate-per-day").value == "") {
+            var results = "<span><b style='color:red;'>Enter the rate per day.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        } else if (document.getElementById("number-of-days").value == "") {
+            var results = "<span class='warning'><b style='color:red;'>Enter the number of days.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        }
+        // sss
+        if (deductions[0].checked) {
+            results = "<span class='message'>The 10% of " + payroll + " is <b style='color:red;'>" + (payroll * 0.1).toFixed(2) + "</b>.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        // pag-ibig
+        } else if (deductions[1].checked) {					
+            results = "<span class='message'>The 7% of " + payroll + " is <b style='color:red;'>" + (payroll * 0.07).toFixed(2) + "</b>.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        // philhealth
+        } else if (deductions[2].checked) {
+            results = "<span class='message'>The 5% of " + payroll + " is <b style='color:red;'>" + (payroll * 0.05).toFixed(2) + "</b>.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        // tax
+        } else if (deductions[3].checked) {
+            results = "<span class='message'>The 12% of " + payroll + " is <b style='color:red;'>" + (payroll * 0.12).toFixed(2) + "</b>.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        } else {
+            results = "<span class='warning'><b style='color:red;'>Select a deduction.</span>";
+            document.getElementById("results").innerHTML = results;
+            return false;
+        }
+        return true;
+    }
+
+    function resetDeductions() {
+        document.getElementById("results").innerHTML = "";
+    }
+
+    function clear() {
+        document.getElementById("results").innerHTML = "";
+        ratePerDay = 0;
+        numberOfDays = 0;
+        document.getElementById("rate-per-day").focus();
+    }
+    </script>
+</html>

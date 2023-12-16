@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="light-mode">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+        <title>FoodSnap: Home</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Roboto", sans-serif;
+            }
+            :root {
+                --blue: #e24b4b;
+                --light-blue: #B6DBF6;
+                --dark-blue: #547e5d;
+                --grey: #f2f2f2;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+                background: linear-gradient(45deg, #fdca21 0%, rgb(155, 81, 240)100%);
+                transition: background 0.5s ease;
+            }
+            body.dark-mode {
+                background: radial-gradient(circle at 24.1% 68.8%, rgb(24 67 53) 0%, rgb(145 74 74) 99.4%)
+            }
+            h1 {
+                font-family: "Aclonica";
+                font-size: 45px;
+                font-weight: 700;
+            }
+            .logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--dark-blue);
+                color: #fff;
+                height: 80px;
+                width: 100%;
+            }
+            .container {
+                max-width: 400px;
+                width: 100%;
+                background: #fff;
+                padding: 30px;
+                border-radius: 30px;
+                box-shadow: 0 25px 20px rgba(5, 5, 5, 0.3);
+                margin-top: 150px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+            .img-area {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                background: var(--grey);
+                margin-bottom: 30px;
+                border-radius: 15px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            .img-area .icon {
+                font-size: 100px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .img-area h3 {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 6px;
+            }
+            .img-area p {
+                color: #999;
+                text-align: center;
+                padding: 10px;
+            }
+            .img-area p span {
+                font-weight: 600;
+            }
+            .img-area img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                z-index: 100;
+            }
+            .img-area::before {
+                content: attr(data-img);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                font-weight: 500;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 200;
+            }
+            .img-area.active:hover::before {
+                opacity: 1;
+            }
+            .select-image {
+                display: block;
+                width: 100%;
+                padding: 16px 0;
+                border-radius: 15px;
+                background: var(--blue);
+                color: #fff;
+                font-weight: 500;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            }
+            body.dark-mode .container {
+                background-color: #636161;
+                color: #000000;
+                box-shadow: 0 7px 20px rgb(255, 255, 255);
+            }
+            .select-image:hover {
+                background: var(--dark-blue);
+            }
+            .dark-mode-toggle {
+                position: fixed;
+                top: 15px;
+                right: 20px;
+                font-size: 20px;
+                color: #fff;
+                background: var(--blue);
+                border: none;
+                border-radius: 20px;
+                padding: 10px;
+                cursor: pointer;
+                box-shadow: 0 5px 10px rgb(160, 159, 159);
+                transition: all 0.4s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .dark-mode-toggle .toggle-icon {
+                margin-right: 5px;
+            }
+
+            .mode-text {
+                margin-left: 5px;
+            }
+            input[type=file]::file-selector-button {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="logo">
+            <h1>FoodSnap</h1>
+        </div>
+        <button class="dark-mode-toggle" onclick = "toggleDarkMode()">
+            <span class="toggle-icon">🌞</span>
+            <span class="mode-text">Light Mode</span>
+        </button>
+        <div class="container">
+            <form method=post enctype=multipart/form-data>
+                <div class="img-area" data-img="">
+                    <i class='bx bxs-cloud-upload icon'></i>
+                    <h3>Upload Image</h3>
+                    <p>Upload an image with the food of your choice.</p>
+                </div>
+                <input class="select-image" title="Click this button to upload an image file." type="file" id="file" name="file" accept=".png, .jpg, .jpeg" style="text-align: center; padding: 20px;"><br>
+                <input class="select-image" id="submit-button" type="submit" value="Please upload an image." disabled>
+            </form>
+        </div>
+        <script>
+            const body = document.body;
+            body.classList.toggle(sessionStorage.getItem("mode"));
+            const submitButton = document.getElementById("submit-button");
+            window.addEventListener('load', function() {
+                submitButton.disabled = true;
+            })
+            const selectImage = document.querySelector(".select-image");
+            const inputFile = document.querySelector("#file");
+            const imgArea = document.querySelector(".img-area");
+            function toggleDarkMode() {
+                body.classList.toggle("dark-mode");
+                const darkModeToggle = document.querySelector(".dark-mode-toggle");
+                const toggleIcon = darkModeToggle.querySelector(".toggle-icon");
+                const modeText = darkModeToggle.querySelector(".mode-text");
+                const isDarkMode = body.classList.contains("dark-mode");
+                if (sessionStorage.getItem("mode") == "dark-mode") {
+                    toggleIcon.innerHTML = "🌙";
+                    modeText.textContent = "Dark Mode";
+                    sessionStorage.setItem("mode", "light-mode");
+                } else {
+                    toggleIcon.innerHTML = "🌞";
+                    modeText.textContent = "Light Mode";
+                    sessionStorage.setItem("mode", "light-mode");
+                    body.classList.toggle(sessionStorage.getItem("mode"));
+                    sessionStorage.setItem("mode", "dark-mode");
+                }
+            }
+            inputFile.addEventListener("change", function () {
+                const image = this.files[0];
+                if (image) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        const allImg = imgArea.querySelectorAll("img");
+                        allImg.forEach(item => item.remove());
+                        const imgUrl = reader.result;
+                        const img = document.createElement("img");
+                        img.src = imgUrl;
+                        imgArea.appendChild(img);
+                        imgArea.classList.add("active");
+                        imgArea.dataset.img = image.name;
+                        submitButton.value = "Analyze!";
+                        submitButton.disabled = false;
+                    };
+                    reader.readAsDataURL(image);
+                }
+            });
+        </script>
+    </body>
+</html>

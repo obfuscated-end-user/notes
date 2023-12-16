@@ -1,0 +1,52 @@
+<html>
+
+<head></head>
+
+<body>
+    <div class="container">
+        <h1>ES6 GUI Calculator</h1>
+        <div class="input-group">
+            <label for="numbersInput">Enter numbers (comma-separated):</label>
+            <input type="text" id="numbersInput" placeholder="e.g., 1, 2, 3">
+        </div>
+        <button class="button" id="sum">Sum</button><br>
+        <button class="button" id="difference">Difference</button><br>
+        <button class="button" id="product">Product</button><br>
+        <button class="button" id="quotient">Quotient</button><br>
+        <p id="result"></p>
+    </div>
+    <script>
+        // ES6 JavaScript code
+        const numbersInput = document.getElementById('numbersInput');
+        // buttons
+        const sumButton = document.getElementById('sum');
+        const differenceButton = document.getElementById('difference');
+        const productButton = document.getElementById('product');
+        const quotientButton = document.getElementById('quotient');
+        // result box
+        const result = document.getElementById('result');
+
+        sumButton.addEventListener('click', () => {
+            const numbers = numbersInput.value.split(',').map(Number);
+            const sum = numbers.reduce((acc, curr) => acc + curr);
+            result.textContent = `Sum: ${sum}`;
+        });
+        differenceButton.addEventListener('click', () => {
+            const numbers = numbersInput.value.split(',').map(Number);
+            const difference = numbers.reduce((acc, curr) => acc - curr);
+            result.textContent = `Difference: ${difference}`;
+        });
+        productButton.addEventListener('click', () => {
+            const numbers = numbersInput.value.split(',').map(Number);
+            const product = numbers.reduce((acc, curr) => acc * curr);
+            result.textContent = `Product: ${product}`;
+        });
+        quotientButton.addEventListener('click', () => {
+            const numbers = numbersInput.value.split(',').map(Number);
+            const quotient = numbers.reduce((acc, curr) => acc / curr);
+            result.textContent = `Quotient: ${quotient}`;
+        });
+    </script>
+</body>
+
+</html>

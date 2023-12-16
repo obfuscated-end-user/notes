@@ -1,0 +1,65 @@
+<html>
+
+<html>
+<head>
+<title>Loop Statement</title>
+</head>
+
+<body>
+<p>Do-while loop</p>
+<label>Smaller Number<input id="num1"> </label>
+<br><br>
+<label>Larger Number<input id="num2"></label>
+<br><br>
+<p>For loop</p>
+<label>Smaller Number<input id="num3"> </label>
+<br><br>
+<label>Larger Number<input id="num4"></label>
+<br><br>
+<p>While loop</p>
+<label>Smaller Number<input id="num5"> </label>
+<br><br>
+<label>Larger Number<input id="num6"></label>
+<br><br>
+<button onclick="Display()"> Display </button>
+
+<script>
+function Display(){
+    var x, y, i, a, b, c, e, f, g;
+x = Number( document.getElementById("num1").value );
+y = Number( document.getElementById("num2").value );
+a = Number( document.getElementById("num3").value );
+b = Number( document.getElementById("num4").value );
+e = Number( document.getElementById("num5").value );
+f = Number( document.getElementById("num6").value );
+
+i=x;
+
+do{
+    
+    document.write("do-while = " + i +"<br/>");
+    i++;
+}
+
+while(i <= y)
+
+for (c=a; c<=b; c++)
+{
+
+document.write("for loop = " + c +"<br/>");
+}
+
+g = e;
+while(g <= f){
+document.write("while = " + g +"<br/>");
+g++;
+}
+}
+
+
+</script>
+</body>
+</html>
+
+
+

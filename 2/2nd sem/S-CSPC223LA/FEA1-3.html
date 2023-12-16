@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+<body>
+    
+</body>
+<script>
+    document.write("Computation of a circle using object");
+    Circle = {
+        radius: 10,
+
+        // area = pi * r^2
+        area: function() {
+            return Math.PI * (this.radius ** 2);
+        },
+
+        // perimeter = 2 * pi * r
+        perimeter: function() {
+            return 2 * Math.PI * this.radius;
+        }
+    };
+    document.write("<br>");
+    document.write("<h3>Area</h3>" + Circle.area().toFixed(2) + "<br>");
+    document.write("<h3>Perimeter</h3>" + Circle.perimeter().toFixed(2));
+</script>
+</html>

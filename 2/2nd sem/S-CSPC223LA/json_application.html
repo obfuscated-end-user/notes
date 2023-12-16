@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background-color: #aaa;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: x-large;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    </body>
+    <script>
+        // JSON
+        personalInformation = {
+            "name": "John Smith",
+            "age": 30,
+            "birthday": "12/01/97",
+            "gender": "male"
+        };
+
+        // DOM
+        document.writeln("<br><br><br><br><br>Name: <span id='name'></span><br>");
+        document.writeln("Age: <span id='age'></span><br>");
+        document.writeln("Birthday: <span id='birthday'></span><br>");
+        document.writeln("Gender: <span id='gender'></span><br>");
+
+        document.getElementById("name").innerHTML = personalInformation["name"];
+        document.getElementById("age").innerHTML = personalInformation["age"];
+        document.getElementById("birthday").innerHTML = personalInformation["birthday"];
+        document.getElementById("gender").innerHTML = personalInformation["gender"];
+
+    </script>
+</html>

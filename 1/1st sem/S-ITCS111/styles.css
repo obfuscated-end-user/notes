@@ -1,0 +1,13 @@
+body {
+	background-color: lime;
+}
+h1 {
+	font-size: 24px;
+	font-family: Arial;
+	color: green;
+			}
+p {
+	font-size: 18px;
+	font-family: Tahoma;
+	color: red;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>DOM demonstration</title>
+    </head>
+    <body>
+        <!--Submit the screenshot of each DOM methods and include a short description of its differences.-->
+        <h1>DOM demonstration</h1>
+        <p id="paragraph1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <span name="up" class="sample1">Up 1</span>
+        <span name="up" class="sample2">Up 2</span>
+        <span name="up" class="sample1">Up 3</span>
+        <span name="down" class="sample2">Down 1</span>
+        <span name="down" class="sample1">Down 2</span>
+        <span name="down" class="sample2">Down 3</span>
+    </body>
+
+    <script>
+        // write()
+        // Writes a string of text to a document stream opened by document.open().
+        document.write("Hello world!<br>");
+    </script>
+
+    <body>
+        <p id="paragraph1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </body>
+    <script>
+        // getElementById
+        // The getElementById() method of the Document interface returns an Element object representing the element whose id property matches the specified string.
+        let paragraph1 = document.getElementById("paragraph1");
+        console.log("getElementById");
+        console.log(paragraph1.innerHTML);
+    </script>
+
+
+    <body>
+        <span name="up" class="sample1">Up 1</span>
+        <span name="up" class="sample2">Up 2</span>
+        <span name="up" class="sample1">Up 3</span>
+        <span name="down" class="sample2">Down 1</span>
+        <span name="down" class="sample1">Down 2</span>
+        <span name="down" class="sample2">Down 3</span>
+    </body>
+    <script>
+        // getElementsByName()
+        // The getElementsByName() method of the Document object returns a NodeList Collection of elements with a given name attribute in the document.
+        let up = document.getElementsByName("up");
+        let down = document.getElementsByName("down");
+        console.log("getElementsByName");
+        for (let i = 0; i < up.length; i++)
+            console.log(up[i].innerHTML);
+        for (let i = 0; i < down.length; i++)
+            console.log(down[i].innerHTML);
+    </script>
+
+    <body>
+        <span name="up" class="sample1">Up 1</span>
+        <span name="up" class="sample2">Up 2</span>
+        <span name="up" class="sample1">Up 3</span>
+        <span name="down" class="sample2">Down 1</span>
+        <span name="down" class="sample1">Down 2</span>
+        <span name="down" class="sample2">Down 3</span>
+    </body>
+    <script>
+        // getElementsByTagName()
+        // The getElementsByTagName() returns the collection of all the elements in the document with the given tag name.
+        let spans = document.getElementsByTagName("span");
+        console.log("getElementsByTagName");
+        for (let i = 0; i < spans.length; i++)
+            console.log(spans[i].innerHTML);
+    </script>
+
+    <body>
+        <span name="up" class="sample1">Up 1</span>
+        <span name="up" class="sample2">Up 2</span>
+        <span name="up" class="sample1">Up 3</span>
+        <span name="down" class="sample2">Down 1</span>
+        <span name="down" class="sample1">Down 2</span>
+        <span name="down" class="sample2">Down 3</span>
+    </body>
+    <script>
+        // getElementsByClassName()
+        // The Element method getElementsByClassName() returns a live HTMLCollection which contains every descendant element which has the specified class name or names. 
+        let sample1 = document.getElementsByClassName("sample1");
+        let sample2 = document.getElementsByClassName("sample2");
+        console.log("getElementsByClassName");
+        for (let i = 0; i < sample1.length; i++)
+            console.log(sample1[i].innerHTML);
+        for (let i = 0; i < sample2.length; i++)
+            console.log(sample2[i].innerHTML);
+    </script>
+
+</html>

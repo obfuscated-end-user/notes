@@ -1,0 +1,12 @@
+body {
+	background-color: gray;
+}
+h1 {
+	text-align: center;
+	color: darkblue;
+}
+.text {
+	font-family: Calibri;
+	color: darkred;
+	font-size: 20px;
+}

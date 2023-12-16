@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Math Calculator Using Radio Button</title>
+    </head>
+<body>
+    <br>
+    <h1>Simple Math Calculator Using Radio Button(Conditional Statement)</h1>
+    <form action="" method="POST">
+    <table cellpadding="1" cellspacing="1" style="text-align:left;" width="40%" border="0">
+        <tr>
+            <td><label>First Value</label></td>
+            <td><input type="number" name="first-textbox-value" id="number1-textbox" autofocus="autofocus"></td>
+        </tr>
+        <tr>
+            <td><label>Second Value</label></td>
+            <td><input type="number" name="second-textbox-value" id="number2-textbox"></td>
+        </tr>
+    </table>
+    <h2>Math Operators</h2>
+    <table cellpadding="5" cellspacing="5" style="text-align:left;" width="40%" border="0">
+        <tr>
+            <td><input type="radio" name="math-operators" onclick="reset_Operators();">   <label style="color:blue;">Addition</label></td>
+            <td><input type="radio" name="math-operators" onclick="reset_Operators();">   <label style="color:blue;">Subtraction</label></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="math-operators" onclick="reset_Operators();">   <label style="color:blue;">Multiplication</label></td>
+            <td><input type="radio" name="math-operators" onclick="reset_Operators();">   <label style="color:blue;">Division</label></td>
+        </tr>
+    </table>
+    <br>
+    <br>           
+    <input type="submit" value="Compute" onclick="return solve();">
+    <input type="submit" value="Clear" onclick="return clear();">
+    <br>
+    <br>
+    <div id="math-results"></div>
+    </form>
+</body>
+<script>
+    function solve() {
+        var firstTextBoxValue = document.getElementById("number1-textbox").value;
+        var secondTextBoxValue = document.getElementById("number2-textbox").value; 
+        var operators_If = document.getElementsByName("math-operators"); // list
+    
+        if (firstTextBoxValue == "") {
+            var mathResults = "<span <b style='color:red;'>Enter the first value.</span>";
+            document.getElementById('math-results').innerHTML = mathResults;
+            return false;
+        } else if (secondTextBoxValue == "") {
+            var mathResults = "<span class='warning'><b style='color:red;'>Enter the second value.</span>";
+            document.getElementById('math-results').innerHTML = mathResults;
+            return false;
+        }
+        
+        if (operators_If[0].checked == true) {
+            sum = parseInt(firstTextBoxValue) + parseInt(secondTextBoxValue);							
+            results = "<span class='message'> The sum of " + firstTextBoxValue + " and " + secondTextBoxValue + " is <b style='color:red;'>" + sum + "</b>.</span>";
+            document.getElementById('math-results').innerHTML = results;
+            return false;
+        } else if (operators_If[1].checked == true) {
+            diff = parseInt(firstTextBoxValue) - parseInt(secondTextBoxValue);					
+            results = "<span class='message'> The difference between " + firstTextBoxValue + " and " + secondTextBoxValue + " is <b style='color:red;'>" + diff + "</b>.</span>";
+            document.getElementById('math-results').innerHTML = results;
+            return false;
+        } else if (operators_If[2].checked == true) {
+            product = parseInt(firstTextBoxValue) * parseInt(secondTextBoxValue);					
+            results = "<span class='message'>The product between " + firstTextBoxValue + " and " + secondTextBoxValue + " is <b style='color:red;'>" + product + "</b>.</span>";
+            document.getElementById('math-results').innerHTML = results;
+            return false;
+        } else if (operators_If[3].checked == true) {
+            quotient = parseInt(firstTextBoxValue) / parseInt(secondTextBoxValue);
+            results = "<span class='message'>The quotient between " + firstTextBoxValue + " and " + secondTextBoxValue + " is <b style='color:red;'>" + quotient + "</b>. </span>";
+            document.getElementById('math-results').innerHTML = results;
+            return false;
+        } else {
+            var mathResults = "<span class='warning'><b style='color:red;'>Select your math operators.</span>";
+            document.getElementById('math-results').innerHTML = mathResults;
+            return false;
+        }
+        return true;
+    }
+
+    function reset_Operators() {
+        document.getElementById("math-results").innerHTML = "";
+    }
+
+    function clear() {
+        document.getElementById("math-results").innerHTML = "";
+        firstTextBoxValue = "";
+        secondTextBoxValue = "";
+        firstTextBoxValue.focus();
+    }
+    </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Tahoma, Arial, sans-serif;
+            color: goldenrod;
+            background-color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <h1>Automated Teller Machine</h1>
+    <input type="number" id="amount"><br>
+    <button type="button" onclick="makeTransaction()">Make a transaction</button><br><br>
+    <input type="radio" name="selection" id="withdraw-radio" checked> Withdraw<br>
+    <input type="radio" name="selection" id="deposit-radio"> Deposit<br>
+    <input type="radio" name="selection" id="check-balance-radio"> Check balance<br>
+    <h2>Results</h2>
+    <p id="results">Current balance: ₱5000.00</p>
+</body>
+<script>
+    let balance = 5000.00;
+    function withdraw() {
+        let message;
+        let amount = parseFloat(document.getElementById("amount").value);
+        if ((amount > balance) || amount < 0.01) {
+            document.getElementById("results").innerHTML = "Invalid withdraw amount.\nCurrent balance: ₱" + (balance).toFixed(2);
+            message = "Withdraw amount larger than current balance.";
+        } else {
+            balance -= amount;
+            document.getElementById("results").innerHTML = "New balance: ₱" + (balance).toFixed(2);
+            message = "Withdraw successful.";
+        }
+        return message;
+    }
+    function deposit() {
+        let message;
+        let amount = parseFloat(document.getElementById("amount").value);
+        if (amount < 0.01) {
+            document.getElementById("results").innerHTML = "Invalid deposit amount.\nCurrent balance: ₱" + (balance).toFixed(2);
+            message = "Invalid deposit amount.";
+        } else {
+            balance += amount;
+            document.getElementById("results").innerHTML = "New balance: ₱" + (balance).toFixed(2);
+            message = "New balance: " + balance;
+        }
+        return message;
+    }
+    function checkBalance() {
+        document.getElementById("results").innerHTML = "Current balance: ₱" + balance.toFixed(2);
+    }
+    function makeTransaction() {
+        let makingATransaction = true;
+        while (makingATransaction) {
+            if (document.getElementById("withdraw-radio").checked) {
+                withdraw();
+            } else if (document.getElementById("deposit-radio").checked) {
+                deposit();
+            } else if (document.getElementById("check-balance-radio").checked) {
+                checkBalance();
+            }
+            makingATransaction = confirm("Do you want to make another transaction?");
+            break;
+            console.log("1")
+
+            if (!makingATransaction) {
+                document.getElementById("amount").value = "12";
+            }
+        }
+    }
+</script>
+</html>

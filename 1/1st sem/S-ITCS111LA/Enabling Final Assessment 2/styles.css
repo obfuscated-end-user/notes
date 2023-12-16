@@ -1,0 +1,34 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: justify;
+	margin-left: 22%;
+	margin-right: 22%;
+}
+
+img {
+	border-radius: 1%;
+}
+
+h1 {
+	font-weight: normal;
+	color: white;
+	background-color: #00703c;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-left: 4%;
+}
+
+a {
+	color: #00703c;
+	text-decoration: none;
+}
+
+.box {
+	background-color: #ebe4e4;
+	border: 1px solid silver;
+	border-radius: 6px;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-left: 2%;
+	padding-right: 2%;
+}

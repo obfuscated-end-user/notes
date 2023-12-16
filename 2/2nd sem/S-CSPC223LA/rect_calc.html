@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Calculator</title>
+</head>
+
+<body>
+    <h1>Rectangle Ccalculator using Arrow Functions</h1>
+    Length: <input type="text" id="length"><br>
+    Width: <input type="text" id="width"><br>
+    <button class="button" id="calculateButton">Calculate</button><br>
+    <p id="area"></p>
+    <p id="perimeter"></p>
+    <p id="diagonal"></p>
+</body>
+<script>
+    const calculateButton = document.getElementById("calculateButton");
+    const lengthTextbox = document.getElementById("length");
+    const widthTextbox = document.getElementById("width");
+    const area = document.getElementById('area');
+    const perimeter = document.getElementById('perimeter');
+    const diagonal = document.getElementById('diagonal');
+
+    calculateButton.addEventListener('click', () => {
+        let length = parseFloat(lengthTextbox.value);
+        let width = parseFloat(widthTextbox.value);
+        const areaFloat = length * width;
+        const perimeterFloat = 2 * (length + width);
+        const diagonalFloat = Math.sqrt(length ** 2 + width ** 2);
+        area.textContent = `Area: ${areaFloat.toFixed(2)}`;
+        perimeter.textContent = `Perimeter: ${perimeterFloat.toFixed(2)}`;
+        diagonal.textContent = `Diagonal: ${diagonalFloat.toFixed(2)}`;
+    });
+</script>
+
+</html>

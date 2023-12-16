@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Calculator</title>
+		<style>
+			table {
+				padding-top: 15%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			button {
+				width: 100%;
+				height: 100%;
+				margin: 1px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.long {
+				padding-top: 50%;
+				padding-bottom: 50%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td colspan="4">
+					<h1>Calculator</h1>
+					<input type="text" id="input-field">
+				</td>
+			</tr>
+			<tr>
+				<td><button onclick="functionsObject.clear()">C</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['signs']['slash'])">/</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['signs']['asterisk'])">*</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['signs']['minus'])">-</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['seven'])">7</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['eight'])">8</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['nine'])">9</button></td>
+				<td rowspan="2"><button class="long" onclick="functionsObject.writeChar(symbolsJSON['signs']['plus'])">+</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['four'])">4</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['five'])">5</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['six'])">6</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['one'])">1</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['two'])">2</button></td>
+				<td><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['three'])">3</button></td>
+				<td  rowspan="2"><button class="long" onclick="functionsObject.equals()">=</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button onclick="functionsObject.writeChar(symbolsJSON['numbers']['zero'])">0</button></td>
+				<td><button onclick="functionsObject.erase()">&lt;&lt;</button></td>
+			</tr>
+		</table>
+		<script>	
+			// JSON (1)
+			symbolsJSON = {
+				"numbers": {
+					"zero": 	0,
+					"one": 		1,
+					"two": 		2,
+					"three": 	3,
+					"four": 	4,
+					"five": 	5,
+					"six": 		6,
+					"seven": 	7,
+					"eight": 	8,
+					"nine": 	9,
+				},
+				"signs": {
+					"plus": 	" + ",
+					"minus": 	" - ",
+					"asterisk": " * ",
+					"slash": 	" / "
+				}
+			}
+
+			// object (2) containing arrow functions (3)
+			functionsObject = {
+				writeChar: (num) => {
+					// DOM (4)
+					document.getElementById("input-field").value += num;
+				},
+				equals: () => {
+					try {
+						document.getElementById("input-field").value = eval(document.getElementById("input-field").value);
+						if (document.getElementById("input-field").value == "Infinity")
+							functionsObject.mathError();
+							// document.getElementById("input-field").value = "Math ERROR";
+					} catch (exception) {
+						functionsObject.mathError();
+						// document.getElementById("input-field").value = "Math ERROR";
+						console.log(exception);
+					}
+				},
+				erase: () => {
+					document.getElementById("input-field").value = document.getElementById("input-field").value.substring(0, document.getElementById("input-field").value.length - 1);
+				},
+				clear: () => {
+					document.getElementById("input-field").value = "";
+				},
+				// AJAX (5)
+				mathError: () => {
+					let xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							document.getElementById("input-field").value = this.responseText;
+						}
+					};
+					xhttp.open("GET", "ajax.txt", true);
+					xhttp.send();
+				}
+			};
+			functionsObject.clear();
+		</script>
+	</body>
+</html>
