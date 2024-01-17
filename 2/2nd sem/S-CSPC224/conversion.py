@@ -45,7 +45,7 @@ def dec_to_hex(num):
     print("D\tQ\tR")
     while quotient != 0:
         quotient = dividend // 16
-        # this looks fucking stupid but it works
+        # this looks stupid but it works
         remainder = str(dividend % 16).replace("10", "A").replace("11", "B").replace("12", "C").replace("13", "D").replace("14", "E").replace("15", "F")
         answer = f"{dividend}\t{quotient}\t{remainder}"
         print(answer)

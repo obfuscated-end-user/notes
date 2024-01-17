@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Capati
+ * @author REDACTED
  */
 public class DriveThru extends javax.swing.JFrame {
 

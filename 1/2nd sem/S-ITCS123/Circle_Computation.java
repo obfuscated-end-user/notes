@@ -1,4 +1,4 @@
-package com.mycompany.capati_enabling;
+package com.mycompany.redacted_enabling;
 
 import javax.swing.JOptionPane;
 import java.text.DecimalFormat;

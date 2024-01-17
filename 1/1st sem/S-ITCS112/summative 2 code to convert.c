@@ -30,7 +30,7 @@ loop2()
 }
 
 
-// fuck you
+// **** you
 
 #include <stdio.h>
 int a[5] ={5, 10, 15, 20, 25};
@@ -55,7 +55,7 @@ loop1() {
 	for (x = 0; x <= 2; x++) {
 		temp = a[x]; // use temporary value for some random use
 		a[x] = a[(size - 1) - x]; // current a[x] value will be 1 object ahead WHAT
-		a[(size - 1) -x] = temp;  // fuck you
+		a[(size - 1) -x] = temp;  // **** you
 	}
 }
 

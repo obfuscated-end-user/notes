@@ -43,7 +43,7 @@ def upload_file():
     return render_template("index.html")
 
 def classify_image():
-    model_name = "schrodingers-kitten/dlsud-food-v1"
+    model_name = "keelhauled-unmitigated-abacination"
     food_classifier = pipeline(model=model_name)
     path = f"{os.path.dirname(os.path.realpath(__file__))}/food_images"
     image = f"{path}/{os.listdir(path)[0]}"

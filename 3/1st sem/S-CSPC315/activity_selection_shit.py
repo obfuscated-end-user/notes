@@ -1,4 +1,3 @@
-# https://dlsud.edu20.org/student_dropbox_assignment/show/41441135
 # https://slideplayer.com/slide/3283154/
 # https://www.geeksforgeeks.org/python-program-for-activity-selection-problem-greedy-algo-1/
 # https://iq.opengenus.org/activity-selection-problem-greedy-algorithm/
