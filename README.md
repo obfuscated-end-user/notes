@@ -10,6 +10,7 @@ Always remember that you're not limited on what your university provides you. Yo
 Don't be afraid to read giant walls of text, and stop kissing ChatGPT's ass, or any kind of AI-related service that's out there. Use it sparingly, excessive usage will only make you more dependent on it.
 
 I personally use these when programming:
+* [Google](https://www.google.com).
 * [Wikipedia](https://en.wikipedia.org) for general information. Yes, quit the crap on this being "unreliable". Your teachers are mostly referring that you shouldn't use Wikipedia's articles as references, not that it's unreliable.
 * [Stack Overflow](https://stackoverflow.com) for programming-related questions.
 * [YouTube](https://www.youtube.com) for watching programming-related videos if you hate reading.
