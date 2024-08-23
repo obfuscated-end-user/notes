@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="MasterPageAdmin" %>
+
+<!DOCTYPE html>
+
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style ="width:1100px; margin:0 auto;">
+            <tr style ="width:1100px; height: 50px; border-color: #5f98f3; background-color: White">
+                <td style ="width:100px">
+                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl="~/Images/1.jpg" Width="100px" /></td>
+                <td style ="width:780px" align ="center">
+                    <asp:Label ID="Label1" runat="server" Text="ELECTRONIC SHOPPING CENTER" ForeColor="RoyalBlue" Font-Bold="True" Font-Names="Times New Roman" Font-Size="35px"></asp:Label>
+                    <br /><b>For Those Who Love Shopping...!</b>
+                </td>
+                <td style ="width:15px;" text-align: right">
+                  
+                    <asp:Button ID="masterPageUserLogoutBtn" runat="server" Text="Log Out" BackColor="#FF5050" BorderColor="White" Font-Bold="True" Font-Names="Calisto MT" ForeColor="Aqua" Height="27px" Width="105px" OnClick="masterPageUserLogoutBtn_Click"/>
+                  
+            </tr>
+           <tr style ="width:1000px; height:40px; background-color:lightblue">
+                <td colspan ="3" style="font-weight: 700" class="auto-style1">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="25px">
+                        <Items>
+                            <asp:MenuItem Text="ADD NEW PRODUCTS" Value="ADD NEW PRODUCTS" NavigateUrl="~/AddNewProducts.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="VIEW RECORDS" Value="VIEW RECORDS" NavigateUrl="~/ViewRecords.aspx"></asp:MenuItem>
+                        </Items>
+
+                        <StaticHoverStyle BackColor="#FF6666" BorderColor="#FF6666" BorderStyle="Outset" ForeColor="White" Height="40px" />
+                        <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" ForeColor="Black" HorizontalPadding="175px" />
+                        <StaticSelectedStyle BackColor="#FF5050" BorderColor="#FF6666" BorderStyle="Inset" ForeColor="#666666" Height="40px" />
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr style="width:110px; height: 310px;">
+                 <td colspan ="3">
+                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                      <ContentTemplate>
+                          <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick"></asp:Timer>
+                          <asp:Image ID="Image2" runat="server" BackColor="White" BorderColor="Gray" BorderStyle="Double" Height="366px" Width="1140px" />
+                     </ContentTemplate>
+
+                     </asp:UpdatePanel>
+                    
+                 </td>
+            </tr>
+            <tr>
+                 <td colspan ="3">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr style = "width: 1100px; height: 25px;  background-color:Black; text-align: center; color: white">
+                 <td colspan ="3">
+               &copy; Online Electronic Shopping | All Rights Reserved
+                     </td>
+            </tr>
+        </table>
+        
+    </div>
+    </form>
+</body>
+</html>
